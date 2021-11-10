@@ -1,5 +1,5 @@
 const CONFIG = {
-  clientId: 'https://solid.github.io/solid-oidc-tests/data/tester',
+  clientId: 'https://solid.github.io/solid-oidc-tests/data/tester.json',
   redirectUri: 'https://solid.github.io/solid-oidc-tests/callback.html',
   specificationData: 'https://solid.github.io/solid-oidc-tests/data/solid-oidc.jsonld',
   pkceMethod: 'S256',
