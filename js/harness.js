@@ -23,20 +23,21 @@ function createEntry(data) {
   // Build description
   const description = document.createElement('td');
   description.classList.add('detail');
+  if (data.message) {
+    description.appendChild(document.createTextNode(data.message));
+    description.appendChild(document.createElement('br'));
+    description.appendChild(document.createElement('br'));
+  }
+
   description.appendChild(document.createTextNode(data.description));
 
-  // Build source
+  // Build source URI
   if (data.uri) {
     const source = document.createElement('a');
     source.classList.add('source');
     source.setAttribute('href', data.uri);
     source.appendChild(document.createTextNode('[Source]'))
     description.appendChild(source);
-  }
-
-  if (data.message) {
-    description.appendChild(document.createElement('br'));
-    description.appendChild(document.createTextNode(data.message));
   }
 
   // Build result item
