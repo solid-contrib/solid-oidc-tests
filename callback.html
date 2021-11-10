@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Solid OpenID Connect Test Suite</title>
+    <script src="js/config.js"></script>
+    <script src="js/authentication.js"></script>
+  </head>
+  <body>
+    <h1>Solid-OIDC Provider Selection</h1>
+    <form id="solid-oidc">
+      <p>Please enter the issuer URL for the Solid-OIDC provider you wish to test.</p>
+      <p>
+        <label for="issuer">Solid-OIDC Issuer:</label>
+        <input id="issuer" type="url" placeholder="OpenID Issuer" required autofocus>
+        <button>Run Tests</button>
+      </p>
+    </form>
+    <script src="js/callback.js"></script>
+  </body>
+</html>
+

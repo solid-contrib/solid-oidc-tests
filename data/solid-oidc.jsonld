@@ -1,0 +1,157 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "spec": "http://www.w3.org/ns/spec#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oidc": "http://www.w3.org/ns/solid/oidc#",
+
+    "label": {
+        "@id": "rdfs:label" },
+    "comment": {
+        "@id": "rdfs:comment" },
+
+    "OpenIDProvider": "oidc:OpenIDProvider",
+
+    "MAY": "spec:MAY",
+    "MUST": "spec:MUST",
+    "SHOULD": "spec:SHOULD",
+
+    "requirementSubject": {
+        "@id": "spec:requirementSubject",
+        "@type": "@id" },
+
+    "requirementLevel": {
+        "@id": "spec:requirementLevel",
+        "@type": "@id" },
+
+    "requirementReference": {
+        "@id": "spec:requirementReference",
+        "@type": "@id" } },
+
+  "tokenType": {
+    "label": "Token type value",
+    "comment": "The OAuth 2.0 token response MUST include a token_type field. For DPoP-bound tokens that type MUST be 'DPoP'.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#tokens-access"},
+
+  "idTokenIssuerClaim": {
+    "label": "ID Token issuer claim",
+    "comment": "The iss (issuer) claim in the ID token must be present and match the issuer field in the OpenID Provider's metadata resource",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"},
+
+  "idTokenValidation": {
+    "label": "ID Token validation",
+    "comment": "The ID Token MUST be serialized as a signed JWT that is verifiable",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"},
+
+  "idTokenAudienceClaim": {
+    "label": "ID Token audience claim",
+    "comment": "The audience claim in the ID token must be present and contain the client identifier",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"},
+
+  "webidHeaderDiscovery": {
+    "label": "WebID discovery headers",
+    "comment": "A WebID resource MAY optionally include solid:oidcIssuer values as link headers.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MAY",
+    "requirementReference": "https://solid.github.io/solid-oidc/#webid-issuer-discovery"},
+
+  "idTokenWebidClaim": {
+    "label": "ID Token webid claim",
+    "comment": "The ID Token MUST include the webid claim when the webid scope has been requested.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#tokens-id"},
+
+  "idTokenIatClaim": {
+    "label": "ID Token issued at claim",
+    "comment": "The ID Token MUST include the iat (issued at) claim, and the value of that claim cannot be in the future.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"},
+
+  "idTokenExpClaim": {
+    "label": "ID Token expriation claim",
+    "comment": "The ID Token MUST include the exp (expiration) claim, and the value of that claim cannot be in the past.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"},
+
+  "metadataIssuer": {
+    "label": "Issuer claim match",
+    "comment": "The server metadata MUST include an issuer claim.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://datatracker.ietf.org/doc/html/rfc8414#section-3.1" },
+
+  "metadataWebidClaim": {
+    "label": "webid claim support",
+    "comment": "The server metadata MUST indicate support for the webid claim in the claims_supported field.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#discovery" },
+
+  "metadataProofKeyCodeExchange": {
+    "label": "PKCE S256 support",
+    "comment": "The Solid-OIDC provider MUST support Proof Key for Code Exchange (PKCE) with the S256 algorithm. This support MUST be indicated via the code_challenge_methods_supported field in the server metadata document.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#concepts" },
+
+  "metadataAuthorizationCodeGrant": {
+    "label": "authorization_code flow support",
+    "comment": "The Solid-OIDC provider MUST support the authorization_code flow, as defined by OpenID Connect. Support for this flow MUST be advertised in the grant_types_supported server metadata field.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#concepts" },
+
+  "metadataWebidScope": {
+    "label": "webid scope support",
+    "comment": "A Solid-OIDC provider MUST support the webid scope. This scope MUST be advertised in the server's metadata resource",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#discovery"},
+
+  "metadataDpopAlgorithm": {
+    "label": "DPoP algorithm support",
+    "comment": "A Solid-OIDC provider MUST support DPoP binding",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#tokens-access"},
+
+  "metadataSigningAlgorithm": {
+    "label": "ID token signing support",
+    "comment": "An OpenID provider MUST support at least the RS256 signing algorithm for ID tokens",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata"},
+
+  "metadataDynamicRegistration": {
+    "label": "Dynamic client registration support",
+    "comment": "An OpenID provider MAY optionally support dynamic client registration. If so, this support is advertised in the server's metadata resource",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MAY",
+    "requirementReference": "https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata" },
+
+  "metadataLogout": {
+    "label": "Relying party logout support",
+    "comment": "An OpenID provider MAY optionally support user-initiated logout. If so, this support is advertised in the server's metadata resource",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MAY",
+    "requirementReference": "https://openid.net/specs/openid-connect-rpinitiated-1_0.html#OPMetadata" },
+
+  "metadataResponseType": {
+    "label": "Response type support",
+    "comment": "An OpenID provider MUST advertise the response types supported in its metadata resource",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://datatracker.ietf.org/doc/html/rfc8414#section-2" }
+}
