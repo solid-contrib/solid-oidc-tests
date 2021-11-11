@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Solid-OIDC Test Harness</title>
-    <link rel="stylesheet" type="text/css" href="css/harness.css"/>
+    <title>Solid OpenID Connect Conformance Test</title>
+    <link rel="shortcut icon" type="image/svg" href="img/solid.svg"/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="js/config.js"></script>
     <script src="js/authentication.js"></script>
     <script src="js/solid-oidc-test-suite.js"></script>
   </head>
   <body>
     <header>
-    <h1>Solid-OIDC Test Harness</h1>
-      <p><a href="https://solid.github.io/solid-oidc/">Specification</a></p>
-      <form id="solid-oidc">
-      <p>
-          <button>begin tests</button>
-      </p>
-      </form>
+      <a href="https://solidproject.org"><img src="img/solid.svg" title="Solid Project" alt="Solid Project"></a>
+      <h1>Solid-OIDC Conformance Test</h1>
     </header>
 
     <section id="informational">
-      <h2 class="issuer"></h2>
-      <div class="message"></div>
+      <div>
+        <form id="solid-oidc">
+          <h2>Solid Authentication Test</h2>
+          <p>
+            This application will perform a series of conformance tests
+            on an OpenID Provider implementing the
+            <a href="https://solid.github.io/solid-oidc/">Solid-OIDC</a>
+            authentication specification.
+          </p>
+          <p>
+            <a href="https://github.com/solid/solid-oidc-tests">Source code</a> is MIT-licensed.
+          </p>
+          <p>
+            <button>Begin Tests</button>
+          </p>
+        </form>
+      </div>
     </section>
     <section id="report">
-      <table>
-      </table>
+      <div class="inactive">
+        <h2 class="issuer"></h2>
+        <p class="message"></p>
+        <table></table>
+      </div>
     </section>
 
     <script src="js/harness.js"></script>

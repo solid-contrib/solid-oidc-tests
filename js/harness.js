@@ -86,10 +86,11 @@ function getSpecData(location) {
   document.getElementById('solid-oidc').addEventListener('submit', (evt) => {
     evt.preventDefault();
     state.authnWindow = window.open(config.redirectUri, config.windowName, config.windowFeatures);
+    report.querySelector('div').classList.replace('active', 'inactive');
     report.querySelectorAll('table').forEach(elem => {
       while (elem.firstChild) elem.removeChild(elem.firstChild);
     });
-    document.querySelectorAll('h2.issuer').forEach(elem => {
+    report.querySelectorAll('h2.issuer').forEach(elem => {
       while (elem.firstChild) elem.removeChild(elem.firstChild);
     });
   });
@@ -110,9 +111,9 @@ function getSpecData(location) {
           state.issuer = evt.data.issuer;
           state.verifier = evt.data.verifier;
 
+          report.querySelector('div').classList.replace('inactive', 'active');
           report.querySelector('table').appendChild(createHeading());
-          document.querySelector('h2.issuer')
-            .appendChild(document.createTextNode(`Conformance report for ${state.issuer}`));
+          report.querySelector('h2.issuer').innerHTML = `Conformance report for <code>${state.issuer}</code>`;
 
           const openid = new OpenId(state.issuer);
           Promise.all([getSpecData(config.specificationData), openid.metadata()])
@@ -129,7 +130,7 @@ function getSpecData(location) {
 
         // Retrieve any errors
         } else if (evt.data?.error) {
-          document.querySelector('div.message').appendChild(document.createTextNode(evt.data.error_description));
+          report.querySelector('div.message').appendChild(document.createTextNode(evt.data.error_description));
         }
       }
     }
