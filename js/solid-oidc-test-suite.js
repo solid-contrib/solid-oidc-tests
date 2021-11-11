@@ -1,13 +1,5 @@
 import { JOSE } from './authentication.js';
 
-const MUST = 'MUST';
-const MAY = 'MAY';
-const SHOULD = 'SHOULD';
-
-const SOLID = 'Solid';
-const OPENID = 'OpenID';
-const OAUTH2 = 'OAuth 2.0';
-
 /** A class for representing link headers. */
 class Link {
   constructor(uri, params) {
@@ -46,6 +38,7 @@ class TestSuite {
     const item = this.spec[id];
     if (item) {
       const data = {
+        id: id,
         label: item.label,
         level: item.requirementLevel,
         status: TestSuite.statusClass(status),

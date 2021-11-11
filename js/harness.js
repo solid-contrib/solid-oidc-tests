@@ -100,7 +100,7 @@ function getSpecData(location) {
   window.onmessage = (evt) => {
     if (evt.origin === window.location.origin) {
       // Events from a running test suite
-      if (evt.source === window.top) {
+      if (evt.source === window.top && evt.data?.id) {
 
         // Add to DOM
         report.querySelector('table').appendChild(createEntry(evt.data));
