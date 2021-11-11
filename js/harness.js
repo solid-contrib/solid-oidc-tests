@@ -1,4 +1,6 @@
-"use strict";
+import { CONFIG } from './config.js';
+import { OpenId, DPoP } from './authentication.js';
+import { IDTokenSuite, DiscoverySuite } from './solid-oidc-test-suite.js';
 
 function createEntry(data) {
   // Build row

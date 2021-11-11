@@ -1,7 +1,5 @@
-"use strict";
-
 /** A class for generating PKCE flow data. */
-class PKCE {
+export class PKCE {
   static escape(str) {
     return str.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
   }
@@ -21,7 +19,7 @@ class PKCE {
 }
 
 /** A class for simple operations with JOSE objects. */
-class JOSE {
+export class JOSE {
   constructor(header, body) {
     this._header = header;
     this._body = body;
@@ -86,7 +84,7 @@ class JOSE {
 }
 
 /** A class for creating DPoP tokens. */
-class DPoP {
+export class DPoP {
   #encoder;
   #key;
 
@@ -151,7 +149,7 @@ class DPoP {
 }
 
 /** A class for handling OpenID Connect interactions. */
-class OpenId {
+export class OpenId {
   constructor(issuer) {
     this.issuer = issuer;
   }

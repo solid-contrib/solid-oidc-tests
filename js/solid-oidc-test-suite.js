@@ -1,4 +1,4 @@
-"use strict";
+import { JOSE } from './authentication.js';
 
 const MUST = 'MUST';
 const MAY = 'MAY';
@@ -72,7 +72,7 @@ class TestSuite {
 }
 
 /** ID Token test suite */
-class IDTokenSuite extends TestSuite {
+export class IDTokenSuite extends TestSuite {
   constructor(spec, clientId, issuer, token) {
     super(spec);
     this.clientId = clientId;
@@ -133,7 +133,7 @@ class IDTokenSuite extends TestSuite {
 }
 
 /** Discovery Test Suite */
-class DiscoverySuite extends TestSuite {
+export class DiscoverySuite extends TestSuite {
 
   constructor(spec, metadata) {
     super(spec);

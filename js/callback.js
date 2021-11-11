@@ -1,4 +1,5 @@
-"use strict";
+import { CONFIG } from './config.js';
+import { OpenId, PKCE } from './authentication.js';
 
 ((config) => {
   document.getElementById('issuer').focus();
