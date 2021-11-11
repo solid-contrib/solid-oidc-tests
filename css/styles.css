@@ -87,6 +87,7 @@ th {
     font-weight: 900; }
 
 .detail {
+    text-align: left;
     line-height: 1.2em; }
 
 .status {
@@ -94,8 +95,8 @@ th {
     font-weight: 900; }
 
 .level {
-    font-weight: 900;
-    text-align: right; }
+    text-align: right;
+    font-weight: 900; }
 
 .pass::before {
     color: green;
