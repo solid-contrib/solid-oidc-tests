@@ -5,7 +5,7 @@
   "redirect_uris": ["https://solid.github.io/solid-oidc-tests/callback.html"],
   "client_name": "Solid-OIDC Tester",
   "logo_uri": "https://solid.github.io/solid-oidc-tests/img/solid.svg",
-  "contacts": ["acoburn@apache.org"],
+  "contacts": ["https://id.inrupt.com/acoburn"],
   "client_uri": "https://solid.github.io/solid-oidc-tests/",
   "grant_types": ["authorization_code"],
   "response_types": ["code"]
