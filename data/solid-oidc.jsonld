@@ -97,7 +97,7 @@
     "comment": "The server metadata MUST indicate support for the webid claim in the claims_supported field.",
     "requirementSubject": "OpenIDProvider",
     "requirementLevel": "MUST",
-    "requirementReference": "https://solid.github.io/solid-oidc/#discovery" },
+    "requirementReference": "https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata" },
 
   "MetadataProofKeyCodeExchange": {
     "label": "PKCE S256 support",
