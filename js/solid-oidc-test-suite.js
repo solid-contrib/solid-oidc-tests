@@ -42,7 +42,7 @@ class TestSuite {
         label: item.label,
         level: item.requirementLevel,
         status: TestSuite.statusClass(status),
-        description: item.comment,
+        description: item.statement,
         message: message,
         uri: item.requirementReference };
 
@@ -178,6 +178,30 @@ export class DiscoverySuite extends TestSuite {
     this.report('MetadataLogout',
       this.metadata.end_session_endpoint != null,
       'Verify whether client-initiated logout is supported.');
+  }
+
+  discoveryTokenEndpoint() {
+    this.report('MetadataTokenEndpoint',
+      this.metadata.token_endpoint != null,
+      'Verify that the token_endpoint field is present');
+  }
+
+  discoveryAuthorizationEndpoint() {
+    this.report('MetadataAuthorizationEndpoint',
+      this.metadata.authorization_endpoint != null,
+      'Verify that the authorization_endpoint field is present');
+  }
+
+  discoveryJwksEndpoint() {
+    this.report('MetadataJwksEndpoint',
+      this.metadata.jwks_uri != null,
+      'Verify that the jwks_uri field is present');
+  }
+
+  discoverySubjectTypesSupported() {
+    this.report('MetadataSubjectTypesSupported',
+      this.metadata.subject_types_supported != null,
+      'Verify whether the supported Subject Identifier types are listed');
   }
 
   discoveryResponseTypeSupport() {
