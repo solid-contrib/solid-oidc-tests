@@ -60,6 +60,20 @@
     "requirementLevel": "MUST",
     "requirementReference": "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"},
 
+  "IdTokenAudienceClaimSolid": {
+    "label": "ID Token audience claim",
+    "statement": "REQUIRED. Audience(s) that this ID Token is intended for. It MUST contain the string 'solid' as an audience value.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#tokens-id"},
+
+  "IdTokenAuthorizedPartyClaim": {
+    "label": "ID Token authorized party claim",
+    "statement": "REQUIRED. Authorized party this ID Token is intended for. It MUST equal the client_id of the Relying Party.",
+    "requirementSubject": "OpenIDProvider",
+    "requirementLevel": "MUST",
+    "requirementReference": "https://solid.github.io/solid-oidc/#tokens-id"},
+
   "WebidHeaderDiscovery": {
     "label": "WebID discovery headers",
     "statement": "A server hosting a WebID document MAY transmit the http://www.w3.org/ns/solid/terms#oidcIssuer values via Link Headers",

@@ -90,10 +90,22 @@ export class IDTokenSuite extends TestSuite {
         'Verify that the token passes JWT validation.'));
   }
 
-  tokenAudience() {
+  tokenAudienceClientId() {
     const idToken = JOSE.parse(this.token.id_token);
-    this.report('IdTokenAudienceClaim', idToken.body.aud === this.clientId,
-      'Verify that the "aud" claim includes the client_id.');
+    this.report('IdTokenAudienceClaim', idToken.body.aud?.includes(this.clientId),
+      'Verify that the "aud" claim includes the client identifier.');
+  }
+
+  tokenAudienceSolid() {
+    const idToken = JOSE.parse(this.token.id_token);
+    this.report('IdTokenAudienceClaimSolid', idToken.body.aud?.includes("solid"),
+      'Verify that the "aud" claim includes the string "solid".');
+  }
+
+  tokenAuthorizedParty() {
+    const idToken = JOSE.parse(this.token.id_token);
+    this.report('IdTokenAuthorizedPartyClaim', idToken.body.azp === this.clientId,
+      'Verify that the "azp" claim equals the client identifier.');
   }
 
   tokenWebId() {
