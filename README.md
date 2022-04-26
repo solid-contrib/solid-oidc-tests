@@ -4,5 +4,5 @@ This repository hosts the test suite associated with the [Solid-OIDC specificati
 
 **This test suite is a work in progress**
 
-You may test a Solid-OIDC Provider through a Web browser using [this application](https://solid.github.io/solid-oidc-tests/).
+You may test a Solid-OIDC Provider through a Web browser using [this application](https://inrupt.github.io/solid-oidc-tests/).
 
