@@ -132,7 +132,7 @@ function getSpecData(location) {
 
         // Retrieve any errors
         } else if (evt.data?.error) {
-          report.querySelector('div.message').appendChild(document.createTextNode(evt.data.error_description));
+          report.querySelector('p.message').appendChild(document.createTextNode(evt.data.error_description));
         }
       }
     }
